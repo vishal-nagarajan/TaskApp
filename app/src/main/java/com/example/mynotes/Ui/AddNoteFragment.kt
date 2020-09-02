@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation
 import com.example.mynotes.R
 import com.example.mynotes.db.Note
 import com.example.mynotes.db.NoteDatabase
@@ -68,7 +69,8 @@ class AddNoteFragment : BaseFragment() {
             //val note = Note(noteTask,noteDescription,noteClient,noteProject,noteStartDate,noteEndDate)
            // NoteDatabase(requireActivity()).getNoteDao().addNote(note)
 //            saveNote(note)
-
+            val action = AddNoteFragmentDirections.actionSaveNote()
+            Navigation.findNavController(it).navigate(action)
         }
     }
 //    private fun saveNote(note:Note){bui

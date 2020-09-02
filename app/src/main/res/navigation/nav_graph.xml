@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     android:label="Add"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/mainMenu">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -14,6 +14,9 @@
         <action
             android:id="@+id/actionAddNote"
             app:destination="@id/addNoteFragment" />
+        <action
+            android:id="@+id/actionMenu"
+            app:destination="@id/mainMenu" />
     </fragment>
     <fragment
         android:id="@+id/addNoteFragment"
@@ -22,6 +25,24 @@
         tools:layout="@layout/fragment_add_note" >
         <action
             android:id="@+id/actionSaveNote"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/mainMenu" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainMenu"
+        android:name="com.example.mynotes.Ui.MainMenu"
+        android:label="fragment_main_menu"
+        tools:layout="@layout/fragment_main_menu" >
+        <action
+            android:id="@+id/mAddNote"
+            app:destination="@id/addNoteFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_exit" />
+        <action
+            android:id="@+id/actionTaskInProgress"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popEnterAnim="@anim/fragment_close_exit" />
     </fragment>
 </navigation>
