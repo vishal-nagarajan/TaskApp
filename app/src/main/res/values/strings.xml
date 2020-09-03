@@ -17,4 +17,6 @@
     <string name="tasks_in_n_progress">Tasks in \n progress</string>
     <string name="tasks_over_n_due">Tasks over\n due</string>
     <string name="tasks_yet_n_to_be_due">Tasks yet\n to be due</string>
+    <string name="pick_starting_date">Pick Starting Date</string>
+    <string name="pick_ending_date">Pick Ending Date</string>
 </resources>

@@ -1,19 +1,20 @@
 package com.example.mynotes.Ui
 
-import android.os.AsyncTask
-import android.os.AsyncTask.execute
+import android.app.DatePickerDialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.EditText
+import android.widget.TextView
 import androidx.navigation.Navigation
 import com.example.mynotes.R
 import com.example.mynotes.db.Note
 import com.example.mynotes.db.NoteDatabase
 import kotlinx.android.synthetic.main.fragment_add_note.*
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 
 class AddNoteFragment : BaseFragment() {
     override fun onCreateView(
@@ -25,15 +26,77 @@ class AddNoteFragment : BaseFragment() {
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
+        var stDate : String =""
+        var edDate : String=""
         super.onActivityCreated(savedInstanceState)
+        val cal = Calendar.getInstance()
+        val cal2 = Calendar.getInstance()
+//        var textview_date: TextView? = null
+//        textview_date = this.display_start_date
+         //create an OnDateSetListener
+         fun updateStartDate(): String {
+             val myFormat = "dd/MM/yyyy" // mention the format you need
+             val sdf = SimpleDateFormat(myFormat, Locale.US)
+             return sdf.format(cal.getTime())
+         }
+        fun updateEndDate(): String {
+            val myFormat = "dd/MM/yyyy" // mention the format you need
+            val edf = SimpleDateFormat(myFormat, Locale.US)
+            return edf.format(cal2.getTime())
+        }
+            val dateSetListener =
+                DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+                    cal.set(Calendar.YEAR, year)
+                    cal.set(Calendar.MONTH, monthOfYear)
+                    cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                    stDate=updateStartDate()
+                }
+
+            // when you click on the button, show DatePickerDialog that is set with OnDateSetListener
+            start_date_pick.setOnClickListener {
+                context?.let {
+                    DatePickerDialog(
+                        it,
+                        dateSetListener,
+                        // set DatePickerDialog to point to today's date when it loads up
+                        cal.get(Calendar.YEAR),
+                        cal.get(Calendar.MONTH),
+                        cal.get(Calendar.DAY_OF_MONTH)
+                    ).show()
+
+                }
+            }
+        val dateSetListener2 =
+            DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+                cal2.set(Calendar.YEAR, year)
+                cal2.set(Calendar.MONTH, monthOfYear)
+                cal2.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                edDate=updateEndDate()
+
+            }
+
+        end_date_pick.setOnClickListener {
+                    context?.let {
+                        DatePickerDialog(
+                            it,
+                            dateSetListener2,
+                            // set DatePickerDialog to point to today's date when it loads up
+                            cal2.get(Calendar.YEAR),
+                            cal2.get(Calendar.MONTH),
+                            cal2.get(Calendar.DAY_OF_MONTH)).show()
+
+                    }
+            }
+
+
 
         button_save.setOnClickListener{
             val noteTask = edit_task.text.toString().trim()
             val noteDescription = edit_description.text.toString().trim()
             val noteClient = edit_client.text.toString().trim()
             val noteProject = edit_project.text.toString().trim()
-            val noteStartDate = (edit_start_date.text.toString().trim())
-            val noteEndDate = (edit_end_date.text.toString().trim())
+            val noteStartDate = stDate
+            val noteEndDate = edDate
             if(noteTask.isEmpty()){
                 edit_task.error = "task required"
                 edit_task.requestFocus()
@@ -50,7 +113,7 @@ class AddNoteFragment : BaseFragment() {
                 return@setOnClickListener
             }
             if(noteProject.isEmpty()){
-                edit_project.error = "project required"
+                edit_project.error = "project requaired"
                 edit_project.requestFocus()
                 return@setOnClickListener
             }

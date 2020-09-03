@@ -37,22 +37,43 @@
         android:id="@+id/edit_client"
         android:inputType="text"
         />
-    <EditText
+<!--    <EditText-->
+<!--        android:layout_below="@+id/edit_client"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="@string/starting_date_yyyy_mm_dd"-->
+<!--        android:id="@+id/edit_start_date"-->
+<!--        android:inputType="text"-->
+<!--        />-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/edit_client"
+        android:hint="@string/pick_starting_date"
+        android:id="@+id/start_date_pick"
+        />
+<!--    <EditText-->
+<!--        android:layout_below="@+id/start_date_pick"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="@string/end_date_yyyy_mm_dd"-->
+<!--        android:id="@+id/edit_end_date"-->
+<!--        android:inputType="text"-->
+<!--        />-->
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/starting_date_yyyy_mm_dd"
-        android:id="@+id/edit_start_date"
-        android:inputType="text"
+        android:layout_below="@+id/start_date_pick"
+        android:hint="@string/pick_ending_date"
+        android:id="@+id/end_date_pick"
         />
-    <EditText
-        android:layout_below="@+id/edit_start_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/end_date_yyyy_mm_dd"
-        android:id="@+id/edit_end_date"
-        android:inputType="text"
-        />
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/display_start_date"-->
+<!--        android:textSize="35dp"-->
+<!--        android:padding="20dp"-->
+<!--        />-->
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
