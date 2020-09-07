@@ -33,6 +33,10 @@ class MainMenu : BaseFragment() {
             val action = MainMenuDirections.actionTaskInProgress()
             Navigation.findNavController(it).navigate(action)
         }
+        tasks_yet_to_be_due.setOnClickListener{
+           val action = MainMenuDirections.actionTentative()
+            Navigation.findNavController(it).navigate(action)
+        }
 
     }
 

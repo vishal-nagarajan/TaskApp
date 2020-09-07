@@ -95,8 +95,21 @@ class AddNoteFragment : BaseFragment() {
             val noteDescription = edit_description.text.toString().trim()
             val noteClient = edit_client.text.toString().trim()
             val noteProject = edit_project.text.toString().trim()
-            val noteStartDate = stDate
-            val noteEndDate = edDate
+            val noteStartDate = (stDate).split("/")
+            val noteEndDate = (edDate).split("/")
+            val noteStartDay = Integer.parseInt(noteStartDate.elementAt(0))
+            val noteStartMon=Integer.parseInt(noteStartDate.elementAt(1))
+            val noteStartYear=Integer.parseInt(noteStartDate.elementAt(2))
+            val noteEndDay=Integer.parseInt(noteEndDate.elementAt(0))
+            val noteEndMon = Integer.parseInt(noteEndDate.elementAt(1))
+            val noteEndYear=Integer.parseInt(noteEndDate.elementAt(2))
+
+//
+//                .split("/").elementAt(0)
+//                .split("/").elementAt(1)
+//                .split("/").elementAt(1)
+//                .split("/").elementAt(2)
+//                .split("/").elementAt(2)
             if(noteTask.isEmpty()){
                 edit_task.error = "task required"
                 edit_task.requestFocus()
@@ -123,36 +136,16 @@ class AddNoteFragment : BaseFragment() {
 //                return@setOnClickListener
 //            }
             launch {
-                val note = Note(noteTask,noteDescription,noteClient,noteProject,noteStartDate,noteEndDate)
+                val note = Note(noteTask,noteDescription,noteClient,noteProject,noteStartDay,noteStartMon,noteStartYear,noteEndDay,noteEndMon,noteEndYear)
                 context?.let {
                     NoteDatabase(it).getNoteDao().addNote(note)
                     it.toast("Note Saved")
                 }
             }
-            //val note = Note(noteTask,noteDescription,noteClient,noteProject,noteStartDate,noteEndDate)
-           // NoteDatabase(requireActivity()).getNoteDao().addNote(note)
-//            saveNote(note)
             val action = AddNoteFragmentDirections.actionSaveNote()
             Navigation.findNavController(it).navigate(action)
         }
     }
-//    private fun saveNote(note:Note){bui
-//        class SaveNote : AsyncTask<Void, Void, Void>(){
-//            override fun doInBackground(vararg params: Void?): Void? {
-//                NoteDatabase(requireActivity()).getNoteDao().addNote(note)
-//                return  null
-//            }
-//
-//            override fun onPostExecute(result: Void?) {
-//                super.onPostExecute(result)
-//                Toast.makeText(activity, "Note saved",Toast.LENGTH_LONG).show()
-//            }
-//
-//        }
-//        SaveNote().execute()
-//    }
+
 }
 
-//private fun Int.isEmpty(): Boolean {
-//
-//}

@@ -44,5 +44,13 @@
             app:enterAnim="@anim/fragment_open_enter"
             app:exitAnim="@anim/fragment_close_exit"
             app:popEnterAnim="@anim/fragment_close_exit" />
+        <action
+            android:id="@+id/actionTentative"
+            app:destination="@id/tentativeToDo" />
     </fragment>
+    <fragment
+        android:id="@+id/tentativeToDo"
+        android:name="com.example.mynotes.TentativeToDo"
+        android:label="fragment_tentative_to_do"
+        tools:layout="@layout/fragment_tentative_to_do" />
 </navigation>

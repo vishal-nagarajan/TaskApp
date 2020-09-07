@@ -19,4 +19,10 @@
     <string name="tasks_yet_n_to_be_due">Tasks yet\n to be due</string>
     <string name="pick_starting_date">Pick Starting Date</string>
     <string name="pick_ending_date">Pick Ending Date</string>
+    <string name="tentative_to_do">Tentative To do</string>
+    <string name="date"> Date </string>
+    <string name="dd_mm_yyyy">dd-mm-yyyy</string>
+    <string name="s_no">S.No</string>
+    <string name="modify">Modify</string>
+
 </resources>
