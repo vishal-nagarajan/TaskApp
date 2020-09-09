@@ -50,7 +50,7 @@
     </fragment>
     <fragment
         android:id="@+id/tentativeToDo"
-        android:name="com.example.mynotes.TentativeToDo"
+        android:name="com.example.mynotes.Ui.TentativeToDo"
         android:label="fragment_tentative_to_do"
         tools:layout="@layout/fragment_tentative_to_do" />
 </navigation>

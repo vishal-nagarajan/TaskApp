@@ -2,6 +2,7 @@ package com.example.mynotes.db
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 import java.time.Year
 
 @Entity

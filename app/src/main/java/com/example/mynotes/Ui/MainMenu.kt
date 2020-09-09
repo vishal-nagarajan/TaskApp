@@ -7,10 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.example.mynotes.R
+import com.example.mynotes.db.Note
 import kotlinx.android.synthetic.main.fragment_main_menu.*
 
 
 class MainMenu : BaseFragment() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -25,6 +28,8 @@ class MainMenu : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+
         add_task.setOnClickListener{
             val action = MainMenuDirections.mAddNote()
             Navigation.findNavController(it).navigate(action)
@@ -37,6 +42,10 @@ class MainMenu : BaseFragment() {
            val action = MainMenuDirections.actionTentative()
             Navigation.findNavController(it).navigate(action)
         }
+//        edit_task.setOnClickListener{
+//            val action = MainMenuDirections.actionEditTask()
+//            Navigation.findNavController(it).navigate(action)
+//        }
 
     }
 

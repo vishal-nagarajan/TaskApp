@@ -1,20 +1,13 @@
-package com.example.mynotes
+package com.example.mynotes.Ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.mynotes.Ui.BaseFragment
-import com.example.mynotes.Ui.HomeFragmentDirections
-import com.example.mynotes.Ui.NotesAdapter
-import com.example.mynotes.Ui.TentativeAdapter
+import com.example.mynotes.R
 import com.example.mynotes.db.NoteDatabase
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_tentative_to_do.*
-import kotlinx.android.synthetic.main.grid_tentative_todo.*
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
@@ -27,6 +20,7 @@ class TentativeToDo : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_tentative_to_do, container, false)
     }
 
@@ -46,7 +40,8 @@ class TentativeToDo : BaseFragment() {
             context?.let {
                 val note = NoteDatabase(it).getNoteDao().getAllNotes()
 //                if(note.sta)
-                recycler_view_tentative.adapter = TentativeAdapter(note)
+                recycler_view_tentative.adapter =
+                    TentativeAdapter(note)
             }
         }
         //        modify_button.setOnClickListener{
