@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Ui.AddNoteFragment">
-    
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/task"
         android:id="@+id/edit_task"
-        android:inputType="text"
+        android:inputType="textCapSentences"
+        android:textSize="20sp"
         />
     <EditText
         android:layout_below="@+id/edit_task"
@@ -19,40 +21,35 @@
         android:hint="@string/description"
         android:gravity="top"
         android:id="@+id/edit_description"
-        android:inputType="textMultiLine"/>
+        android:inputType="textMultiLine"
+        android:textSize="20sp"/>
 
-    <EditText
-        android:layout_below="@+id/edit_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/project"
-        android:id="@+id/edit_project"
-        android:inputType="text"
-        />
-    <EditText
-        android:layout_below="@+id/edit_project"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/client"
-        android:id="@+id/edit_client"
-        android:inputType="text"
-        />
-<!--    <EditText-->
-<!--        android:layout_below="@+id/edit_client"-->
+    <!--    <TextView-->
+<!--        android:id="@+id/ClientAutoCompleteTextView"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:hint="@string/starting_date_yyyy_mm_dd"-->
-<!--        android:id="@+id/edit_start_date"-->
-<!--        android:inputType="text"-->
-<!--        />-->
-    <Button
-        android:layout_width="match_parent"
+<!--        android:layout_below="@+id/edit_project"-->
+<!--        android:layout_marginTop="2dp"-->
+<!--        android:completionThreshold="1"-->
+<!--        android:hint="@string/client" />-->
+
+    <TextView
+        android:layout_width="93dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_client"
-        android:hint="@string/pick_starting_date"
-        android:id="@+id/start_date_pick"
-        />
-<!--    <EditText-->
+        android:layout_below="@+id/edit_description"
+        android:layout_marginTop="12dp"
+        android:text="@string/project"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="93dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_description"
+        android:layout_marginTop="74dp"
+        android:text="@string/client"
+        android:textSize="20sp" />
+
+    <!--    <EditText-->
 <!--        android:layout_below="@+id/start_date_pick"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
@@ -60,14 +57,29 @@
 <!--        android:id="@+id/edit_end_date"-->
 <!--        android:inputType="text"-->
 <!--        />-->
-    <Button
-        android:layout_width="match_parent"
+
+
+
+    <Spinner
+        android:id="@+id/spinnerclient"
+        android:layout_width="205dp"
+        android:layout_height="26sp"
+        android:layout_below="@+id/spinnerProject"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="-316dp"
+        android:layout_marginBottom="3dp" />
+
+    <TextView
+        android:layout_width="93dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/start_date_pick"
-        android:hint="@string/pick_ending_date"
-        android:id="@+id/end_date_pick"
-        />
-<!--    <TextView-->
+        android:layout_below="@+id/edit_description"
+        android:layout_marginTop="153dp"
+        android:text="@string/start_date"
+        android:textSize="20sp" />
+
+    <!--    <TextView-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
 <!--        android:id="@+id/display_start_date"-->
@@ -76,14 +88,129 @@
 <!--        />-->
 
 
+    <Button
+        android:id="@+id/start_date_pick"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/start_date_display"
+        android:layout_alignBottom="@+id/start_date_display"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-7dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="-12dp"
+        android:elevation="1dp"
+        app:iconPadding="0dp"
+        android:padding="0dp"
+        app:icon="@drawable/ic_calender"
+        app:iconGravity="textStart" />
+
+    <TextView
+        android:id="@+id/start_date_display"
+        android:layout_width="205dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerclient"
+        android:layout_alignEnd="@+id/button"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="61dp"
+        android:hint="@string/pick_starting_date"
+        android:textSize="20sp" />
+
+
+    <Button
+        android:id="@+id/end_date_pick"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/end_date_display"
+        android:layout_alignEnd="@+id/start_date_pick"
+        android:layout_alignBottom="@+id/end_date_display"
+        android:layout_marginTop="-9dp"
+        android:layout_marginEnd="-2dp"
+        android:layout_marginBottom="-7dp"
+        android:elevation="1dp"
+        app:iconPadding="0dp"
+        android:padding="0dp"
+        app:icon="@drawable/ic_calender"
+        app:iconGravity="textStart" />
+
+    <TextView
+        android:id="@+id/end_date_display"
+        android:layout_width="205dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start_date_display"
+        android:layout_alignStart="@+id/start_date_display"
+        android:layout_alignEnd="@+id/start_date_display"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="-1dp"
+        android:hint="@string/pick_ending_date"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="93dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_description"
+        android:layout_marginTop="227dp"
+        android:text="@string/end_date"
+        android:textSize="20sp" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/button_save"
         android:layout_width="wrap_content"
-        android:src="@drawable/ic_done"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:tint="@android:color/white"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="90dp"
+        android:backgroundTint="#4CAF50"
         android:clickable="true"
-         />
+        app:tint="#fff"
+        android:src="@drawable/ic_done" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button2"
+        android:layout_width="45dp"
+        android:layout_height="35dp"
+        android:layout_alignTop="@+id/spinnerProject"
+        android:layout_alignBottom="@+id/spinnerProject"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="-5dp"
+        android:layout_marginBottom="-6dp"
+        android:layout_toEndOf="@+id/spinnerProject"
+        android:clickable="true"
+        android:focusable="true"
+        android:tint="#ffff"
+        app:iconPadding="0dp"
+        android:padding="0dp"
+        app:iconGravity="textStart"
+        app:icon="@drawable/ic_project_add_colored" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button"
+        android:layout_width="45dp"
+        android:layout_height="35dp"
+        android:layout_alignTop="@+id/spinnerclient"
+        android:layout_alignBottom="@+id/spinnerclient"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="-3dp"
+        android:layout_marginBottom="-5dp"
+        android:layout_toEndOf="@+id/spinnerProject"
+        android:backgroundTint="@color/colorAccent"
+        app:iconPadding="0dp"
+        android:padding="0dp"
+        app:iconGravity="textStart"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        app:icon="@drawable/ic_client_add"
+  />
+
+    <Spinner
+        android:id="@+id/spinnerProject"
+        android:layout_width="208dp"
+        android:layout_height="27sp"
+        android:layout_below="@+id/edit_description"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="1dp" />
+
 </RelativeLayout>

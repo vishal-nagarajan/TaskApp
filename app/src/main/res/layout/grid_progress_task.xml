@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+
+    <TextView
+        android:id="@+id/progress_sno"
+        android:layout_width="45dp"
+        android:layout_height="18dp"
+        android:background="@drawable/cell_shape"
+        android:gravity="center"
+        android:text="@string/s_no"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_on_secondary" />
+
+    <TextView
+        android:id="@+id/progress_task"
+        android:layout_width="177dp"
+        android:layout_height="18dp"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:background="@drawable/cell_shape"
+        android:gravity="center"
+        android:text="@string/task"
+        android:textColor="@color/design_default_color_on_secondary" />
+
+    <TextView
+        android:id="@+id/progress_days_left"
+        android:layout_width="77dp"
+        android:layout_height="18dp"
+        android:layout_row="0"
+        android:layout_column="2"
+        android:background="@drawable/cell_shape"
+        android:gravity="center"
+        android:text="@string/days_left"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_on_secondary" />
+
+    <TextView
+        android:id="@+id/progress_hours"
+        android:layout_width="99dp"
+        android:layout_height="18dp"
+        android:layout_row="0"
+        android:layout_column="3"
+        android:background="@drawable/cell_shape"
+        android:gravity="center"
+        android:text="@string/hours_worked"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_on_secondary" />
+
+</GridLayout>

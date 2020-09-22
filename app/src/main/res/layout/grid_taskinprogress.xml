@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+<TableRow>
+    <TextView
+        android:id="@+id/sno"
+        android:layout_width="41dp"
+        android:layout_height="30dp"
+        android:background="@drawable/cell_shape"
+        android:text="@string/s_no"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_on_secondary" />
+
+    <TextView
+        android:id="@+id/tip_task"
+        android:layout_width="175dp"
+        android:layout_height="30dp"
+        android:background="@drawable/cell_shape"
+        android:text="@string/task"
+        android:gravity="center"
+
+        android:textColor="@color/design_default_color_on_secondary" />
+
+    <TextView
+        android:id="@+id/update_button"
+        android:layout_width="69dp"
+        android:layout_height="30dp"
+        android:layout_column="2"
+        android:elevation="10dp"
+        android:text="@string/option_dot"
+        android:background="@drawable/cell_shape"
+        android:gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold" />
+    </TableRow>
+
+
+</GridLayout>

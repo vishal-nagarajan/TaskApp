@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ui.TaskinProgress"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/todo_c"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/todays_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/dd_mm_yyyy"
+        android:textColor="#3F51B5"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/head" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="58dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="28dp"
+        android:gravity="center"
+        android:text="@string/date"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/todays_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/todays_date"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_taskinprogress"
+            android:layout_width="285dp"
+            android:layout_height="229dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="@+id/tabl"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/tabl"
+            app:layout_constraintTop_toTopOf="@+id/tabl" />
+
+        <TableLayout
+            android:id="@+id/tabl"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center_horizontal"
+            android:elevation="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.34">
+
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/sno"
+                    android:layout_width="41dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+
+                    android:background="@drawable/table_title"
+                    android:text="@string/s_no"
+                    android:textAlignment="center"
+                    android:textColor="#3F51B5"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tip_task"
+                    android:layout_width="175dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/table_title"
+                    android:gravity="center"
+                    android:text="@string/task"
+                    android:textColor="#3F51B5"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/update_button"
+                    android:layout_width="69dp"
+                    android:background="@drawable/table_title"
+                    android:layout_height="30dp"
+                    android:textColor="#3F51B5"
+
+                    android:layout_column="2"
+                    android:gravity="center"
+                    android:text="@string/update"
+                    android:textStyle="bold" />
+            </TableRow>
+        </TableLayout>
+    <Button
+        android:id="@+id/mainmenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="516dp"
+        android:layout_marginEnd="52dp"
+        android:text="@string/main_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+

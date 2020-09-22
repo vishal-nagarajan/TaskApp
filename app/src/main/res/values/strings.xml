@@ -20,9 +20,69 @@
     <string name="pick_starting_date">Pick Starting Date</string>
     <string name="pick_ending_date">Pick Ending Date</string>
     <string name="tentative_to_do">Tentative To do</string>
-    <string name="date"> Date </string>
+    <string name="date"> Date: </string>
     <string name="dd_mm_yyyy">dd-mm-yyyy</string>
     <string name="s_no">S.No</string>
     <string name="modify">Modify</string>
+    <string name="currentdate">currentdate</string>
+    <string name="status">status</string>
+    <string name="tip_todo">TIP todo</string>
+    <string name="togglebutton">ToggleButton</string>
+    <string name="todo">TODO</string>
+    <string name="hours">Hours</string>
+    <string name="in_progress">In Progress</string>
+    <string name="completed">Completed</string>
+    <string name="enter_new_client">Enter New Client</string>
+    <string name="add_new_client">Add New Client</string>
+    <string name="cancel">Cancel</string>
+    <string name="message">can\'t find try adding manually</string>
+    <string name="enter_new_project_name">Enter new Project name</string>
+    <string name="add_new_project">Add new project</string>
+    <string name="choose_a_project_n_add_new_project">Choose a project \n Add New Project</string>
+    <string name="choose_a_project">Choose a Project</string>
+    <string name="icon"></string>
+    <string name="add_new_client_new">(+) Add New Client</string>
+    <string name="add_new_project_new">(+) Add New Project</string>
+    <string name="postpone">Postponed to </string>
+    <string name="pick_a_date">Pick a Date</string>
+    <string name="drop_for_today">Drop for today</string>
+    <string name="save">Save</string>
+    <string name="custom_date">Custom Date</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="pick">Pick</string>
+    <string name="place">Place</string>
+    <string name="people">People</string>
+    <string name="nature_of_work">Nature of work</string>
+    <string name="add_nature_of_work">Add Nature of work</string>
+    <string name="meeting">Meeting</string>
+    <string name="leaarning">Leaarning</string>
+    <string name="client_call">Client Call</string>
+    <string name="planning">Planning</string>
+    <string name="enter_nature_of_work">Enter Nature of Work</string>
+    <string name="generate">Generate</string>
+    <string name="work_log">Work Log</string>
+    <string name="update">Update</string>
+    <string name="main_menu">Main Menu</string>
+    <string name="task_in_progress">Task in Progress</string>
+    <string name="days_left">Days Left</string>
+    <string name="hours_worked">Hours Worked</string>
+    <string name="option_dot">...</string>
+    <string name="todo_c">Todo</string>
+    <string name="work_log_for_a_date_range">Work log for a date range</string>
+    <string name="work_log_for_a_client">Work log for a Client</string>
+    <string name="work_log_for_a_project">Work log for a Project</string>
 
-</resources>
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+</resources><!--<resources>-->
+
+    <!--</resources>-->

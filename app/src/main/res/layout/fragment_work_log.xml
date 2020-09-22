@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ui.WorkLogFragment"
+    android:layout_gravity="bottom"
+    android:orientation="vertical">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/filename"
+        android:autofillHints="filename"
+        android:inputType="text"
+        tools:ignore="LabelFor">
+
+    </EditText>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_generat_work_log"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/generate"
+        android:backgroundTint="#8BC34A"
+        />
+
+
+</LinearLayout>
