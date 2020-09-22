@@ -1,20 +1,23 @@
 package com.example.mynotes.Ui
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.mynotes.R
 import com.example.mynotes.db.NoteDatabase
 import kotlinx.android.synthetic.main.fragment_tentative_to_do.*
+import kotlinx.android.synthetic.main.grid_tentative_todo.*
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
 
 class TentativeToDo : BaseFragment() {
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,19 +41,20 @@ class TentativeToDo : BaseFragment() {
         recycler_view_tentative.layoutManager =  StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
         launch {
             context?.let {
-                val note = NoteDatabase(it).getNoteDao().getAllNotes()
-//                if(note.sta)
+                NoteDatabase(it).getNoteDao().updateCurrDate(day,mon,year)
+                val note = NoteDatabase(it).getNoteDao().getTodayNotes()
                 recycler_view_tentative.adapter =
                     TentativeAdapter(note)
             }
         }
-        //        modify_button.setOnClickListener{
-//            val action = HomeFragmentDirections.actionAddNote()
-//            Navigation.findNavController(it).navigate(action)
-//        }
-//        button_menu.setOnClickListener{
-//            val action = HomeFragmentDirections.actionMenu()
-//            Navigation.findNavController(it).navigate(action)
-//        }
+        save_tentative_to_do.setOnClickListener {
+            val action  = TentativeToDoDirections.actionTentToDoToTodo()
+            Navigation.findNavController(it).navigate(action)
+        }
+        add_task_tentative_to_do.setOnClickListener {
+            val action = TentativeToDoDirections.actionTentativeToDoToAddNoteFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
+
     }
 }

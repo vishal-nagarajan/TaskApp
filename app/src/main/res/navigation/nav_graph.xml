@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     android:label="Add"
-    app:startDestination="@id/mainMenu">
+    app:startDestination="@id/tentativeToDo">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -13,7 +13,11 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/actionAddNote"
-            app:destination="@id/addNoteFragment" />
+            app:destination="@id/addNoteFragment" >
+            <argument
+                android:name="pager"
+                android:defaultValue="2" />
+        </action>
         <action
             android:id="@+id/actionMenu"
             app:destination="@id/mainMenu" />
@@ -26,6 +30,21 @@
         <action
             android:id="@+id/actionSaveNote"
             app:destination="@id/mainMenu" />
+        <argument
+            android:name="Note"
+            app:argType="com.example.mynotes.db.Note"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="pager"
+            app:argType="integer"
+            android:defaultValue="1" />
+        <action
+            android:id="@+id/actionUSaveNote"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/actionTTSaveNote"
+            app:destination="@id/tentativeToDo" />
     </fragment>
     <fragment
         android:id="@+id/mainMenu"
@@ -37,20 +56,119 @@
             app:destination="@id/addNoteFragment"
             app:enterAnim="@anim/fragment_open_enter"
             app:exitAnim="@anim/fragment_open_exit"
-            app:popEnterAnim="@anim/fragment_close_exit" />
+            app:popEnterAnim="@anim/fragment_close_exit" >
+            <argument
+                android:name="pager"
+                android:defaultValue="3" />
+        </action>
         <action
             android:id="@+id/actionTaskInProgress"
-            app:destination="@id/homeFragment"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_close_exit"
-            app:popEnterAnim="@anim/fragment_close_exit" />
+            app:destination="@id/homeFragment" />
         <action
             android:id="@+id/actionTentative"
             app:destination="@id/tentativeToDo" />
+        <action
+            android:id="@+id/actionWorkLogFrahment"
+            app:destination="@id/workLogFragment" />
+        <action
+            android:id="@+id/action_mainMenu_to_progressTasks"
+            app:destination="@id/progressTasks" />
+        <action
+            android:id="@+id/action_statusinProgress"
+            app:destination="@id/progressTasks" >
+            <argument
+                android:name="page"
+                android:defaultValue="1" />
+        </action>
+        <action
+            android:id="@+id/action_statusinCompleted"
+            app:destination="@id/progressTasks" >
+            <argument
+                android:name="button"
+                android:defaultValue="true" />
+            <argument
+                android:name="page"
+                android:defaultValue="2" />
+        </action>
+        <action
+            android:id="@+id/action_dueOver"
+            app:destination="@id/progressTasks" >
+            <argument
+                android:name="page"
+                android:defaultValue="3" />
+        </action>
+        <action
+            android:id="@+id/action_dueYet"
+            app:destination="@id/progressTasks">
+            <argument
+                android:name="page"
+                android:defaultValue="4" />
+        </action>
+        <action
+            android:id="@+id/actionCustomWorkLog"
+            app:destination="@id/customWorkLogFragment" />
     </fragment>
     <fragment
         android:id="@+id/tentativeToDo"
         android:name="com.example.mynotes.Ui.TentativeToDo"
         android:label="fragment_tentative_to_do"
-        tools:layout="@layout/fragment_tentative_to_do" />
+        tools:layout="@layout/fragment_tentative_to_do" >
+        <action
+            android:id="@+id/action_tentToDo_to_todo"
+            app:destination="@id/taskinProgress" />
+        <action
+            android:id="@+id/action_tentativeToDo_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskinProgress"
+        android:name="com.example.mynotes.Ui.TaskinProgress"
+        android:label="fragment_task_in_progress"
+        tools:layout="@layout/fragment_task_in_progress" >
+        <action
+            android:id="@+id/actionStatusChange"
+            app:destination="@id/updateStatus" />
+        <action
+            android:id="@+id/action_taskinProgress_to_mainMenu"
+            app:destination="@id/mainMenu" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/updateStatus"
+        android:name="com.example.mynotes.Ui.updateStatus"
+        android:label="fragment_update_status"
+        tools:layout="@layout/fragment_update_status" >
+    <argument
+        android:name="Note"
+        app:argType="com.example.mynotes.db.Note"
+        app:nullable="true"
+        android:defaultValue="@null" />
+        <action
+            android:id="@+id/actionbacktoMenu"
+            app:destination="@id/mainMenu" />
+    </fragment>
+    <fragment
+        android:id="@+id/workLogFragment"
+        android:name="com.example.mynotes.Ui.WorkLogFragment"
+        android:label="fragment_work_log"
+        tools:layout="@layout/fragment_work_log" />
+    <fragment
+        android:id="@+id/progressTasks"
+        android:name="com.example.mynotes.Ui.ProgressTasks"
+        android:label="fragment_progress_tasks"
+        tools:layout="@layout/fragment_progress_tasks" >
+<!--        <argument-->
+<!--            android:name="button"-->
+<!--            app:argType="boolean"-->
+<!--            android:defaultValue="false" />-->
+        <argument
+            android:name="page"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/customWorkLogFragment"
+        android:name="com.example.mynotes.Ui.CustomWorkLogFragment"
+        android:label="fragment_custom_work_log"
+        tools:layout="@layout/fragment_custom_work_log" />
 </navigation>

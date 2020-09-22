@@ -12,19 +12,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/tentative_to_do"
+        android:gravity="center"
         android:textAlignment="center"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:textStyle="bold"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/todays_date"
-        android:layout_width="80dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
         android:text="@string/dd_mm_yyyy"
+        android:textColor="#3F51B5"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/head" />
 
@@ -32,33 +35,98 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:background="#03A9F4"
+        android:layout_marginStart="32dp"
+        android:gravity="center"
         android:text="@string/date"
         android:textAlignment="center"
-        android:textColor="#FDFCFF"
-        android:textSize="20dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/todays_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/todays_date"
-        app:layout_constraintVertical_bias="0.333" />
+        app:layout_constraintVertical_bias="0.0" />
 
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/recycler_view_tentative"-->
+<!--        android:layout_width="303dp"-->
+<!--        android:layout_height="240dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/tabl"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/tabl"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/tabl" />-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_tentative"
-        android:layout_width="303dp"
-        android:layout_height="240dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="285dp"
+        android:layout_height="229dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="@+id/tabl"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/tabl"
         app:layout_constraintTop_toTopOf="@+id/tabl" />
 
+<!--    <TableLayout-->
+<!--        android:id="@+id/tabl"-->
+<!--        android:layout_width="304dp"-->
+<!--        android:layout_height="18dp"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.495"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.34">-->
+
+<!--        <TableRow-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            tools:layout_editor_absoluteX="32dp"-->
+<!--            tools:layout_editor_absoluteY="170dp">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:text="@string/s_no"-->
+<!--                android:textColor="@color/design_default_color_on_secondary"-->
+<!--                android:textStyle="bold"-->
+<!--                tools:layout_editor_absoluteX="134dp"-->
+<!--                tools:layout_editor_absoluteY="217dp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="165dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_row="0"-->
+<!--                android:layout_column="1"-->
+<!--                android:text="@string/tasks"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/design_default_color_on_secondary"-->
+<!--                android:textStyle="bold"-->
+<!--                tools:layout_editor_absoluteX="134dp"-->
+<!--                tools:layout_editor_absoluteY="217dp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="69dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_row="0"-->
+<!--                android:layout_column="2"-->
+<!--                android:text="@string/modify"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/design_default_color_on_secondary"-->
+<!--                android:textStyle="bold"-->
+<!--                tools:layout_editor_absoluteX="134dp"-->
+<!--                tools:layout_editor_absoluteY="217dp" />-->
+<!--        </TableRow>-->
+<!--    </TableLayout>-->
     <TableLayout
         android:id="@+id/tabl"
-        android:layout_width="304dp"
-        android:layout_height="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
         android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:elevation="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -66,90 +134,65 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.34">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            tools:layout_editor_absoluteX="32dp"
-            tools:layout_editor_absoluteY="170dp">
+
+        <TableRow>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="41dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+
+                android:background="@drawable/table_title"
                 android:text="@string/s_no"
-                android:textColor="@color/design_default_color_on_secondary"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="134dp"
-                tools:layout_editor_absoluteY="217dp" />
+                android:textAlignment="center"
+                android:textColor="#3F51B5"
+                android:textStyle="bold"/>
 
             <TextView
-                android:layout_width="165dp"
-                android:layout_height="match_parent"
-                android:layout_row="0"
-                android:layout_column="1"
-                android:text="@string/tasks"
-                android:textAlignment="center"
-                android:textColor="@color/design_default_color_on_secondary"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="134dp"
-                tools:layout_editor_absoluteY="217dp" />
+                android:layout_width="175dp"
+                android:layout_height="30dp"
+                android:background="@drawable/table_title"
+                android:gravity="center"
+                android:text="@string/task"
+                android:textColor="#3F51B5"
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="69dp"
-                android:layout_height="match_parent"
-                android:layout_row="0"
+                android:background="@drawable/table_title"
+                android:layout_height="30dp"
+                android:textColor="#3F51B5"
+
                 android:layout_column="2"
+                android:gravity="center"
                 android:text="@string/modify"
-                android:textAlignment="center"
-                android:textColor="@color/design_default_color_on_secondary"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="134dp"
-                tools:layout_editor_absoluteY="217dp" />
+                android:textStyle="bold" />
         </TableRow>
     </TableLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/save_tentative_to_do"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="52dp"
+        android:backgroundTint="#4CAF50"
+        android:text="@string/save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_view_tentative">
 
-    <!--    <GridLayout-->
+    </com.google.android.material.button.MaterialButton>
 
-<!--        android:id="@+id/grid"-->
-<!--        android:layout_width="301dp"-->
-<!--        android:layout_height="80dp"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.4"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.371">-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_task_tentative_to_do"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="52dp"
+        android:text="@string/add_task"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_view_tentative">
 
-
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="@string/s_no"-->
-<!--                    android:textAlignment="center"-->
-<!--                    android:textColor="@color/design_default_color_on_secondary"-->
-<!--                    tools:layout_editor_absoluteX="134dp"-->
-<!--                    tools:layout_editor_absoluteY="217dp" />-->
-
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="@string/s_no"-->
-<!--                    android:textAlignment="center"-->
-<!--                    android:textColor="@color/design_default_color_on_secondary"-->
-<!--                    tools:layout_editor_absoluteX="134dp"-->
-<!--                    tools:layout_editor_absoluteY="217dp" />-->
-
-<!--                <Button-->
-<!--                    android:id="@+id/modify_button"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="@string/modify"-->
-<!--                    android:textAlignment="center"-->
-<!--                    tools:layout_editor_absoluteX="134dp"-->
-<!--                    tools:layout_editor_absoluteY="217dp" />-->
-
-<!--    </GridLayout>-->
+    </com.google.android.material.button.MaterialButton>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
