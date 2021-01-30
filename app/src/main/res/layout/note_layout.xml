@@ -1,71 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="wrap_content"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp">
+
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="202dp"
             android:padding="8dp">
+
             <TextView
+                android:id="@+id/text_view_task"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:text="@string/task"
-                android:textSize="24dp"
-                android:id="@+id/text_view_task"
                 android:textAppearance="@style/CardView.Dark"
                 android:textColor="#D4003C"
-                android:layout_margin="10dp"/>
+                android:textSize="24dp" />
+
             <TextView
-                android:layout_below="@+id/text_view_task"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/description"
-                android:textSize="16dp"
                 android:id="@+id/text_view_description"
-                android:textAppearance="@style/Base.CardView"
-                />
-            <TextView
-                android:layout_below="@+id/text_view_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#00BCD4"
-                android:text="@string/client"
-                android:textSize="16dp"
+                android:layout_below="@+id/text_view_task"
+                android:text="@string/description"
+                android:textAppearance="@style/Base.CardView"
+                android:textSize="16dp" />
+
+            <TextView
                 android:id="@+id/text_view_client"
-                android:textAppearance="@style/Base.CardView"
-                />
-            <TextView
-                android:layout_below="@+id/text_view_client"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/project"
+                android:layout_below="@+id/text_view_description"
+                android:text="@string/client"
+                android:textAppearance="@style/Base.CardView"
+                android:textColor="#00BCD4"
+                android:textSize="16dp" />
+
+            <TextView
                 android:id="@+id/text_view_project"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_view_client"
+                android:text="@string/project"
+                android:textAppearance="@style/Base.CardView"
                 android:textColor="#3F51B5"
-                android:textAppearance="@style/Base.CardView"
-                android:textSize="16dp"
-                />
+                android:textSize="16dp" />
+
             <TextView
+                android:id="@+id/text_view_currDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/text_view_project"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/start_date"
-                android:id="@+id/text_view_startDate"
+                android:text="@string/currentdate"
                 android:textAppearance="@style/Base.CardView"
-                android:textSize="16dp"
-                />
+                android:textSize="16dp" />
+
             <TextView
-                android:layout_below="@+id/text_view_startDate"
+                android:id="@+id/text_view_startDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/end_date"
-                android:id="@+id/text_view_endDate"
+                android:layout_below="@+id/text_view_currDate"
+                android:text="@string/start_date"
                 android:textAppearance="@style/Base.CardView"
-                android:textSize="16dp"
-                />
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/text_view_endDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_view_startDate"
+                android:text="@string/end_date"
+                android:textAppearance="@style/Base.CardView"
+                android:textSize="16dp" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 

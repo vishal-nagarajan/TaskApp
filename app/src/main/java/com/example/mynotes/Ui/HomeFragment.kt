@@ -42,6 +42,8 @@ class HomeFragment : BaseFragment() {
         button_menu.setOnClickListener{
             val action = HomeFragmentDirections.actionMenu()
             Navigation.findNavController(it).navigate(action)
+
+//            Home
         }
     }
 }
