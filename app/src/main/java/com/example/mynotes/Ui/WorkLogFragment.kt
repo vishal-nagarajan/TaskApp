@@ -153,7 +153,7 @@ class WorkLogFragment : BaseFragment() {
                 sheet.getRow(i).createCell(j).setCellValue(taskandtime.task.task)
                 for(time in taskandtime.timelogs) {
                     sheet.getRow(i + 1).createCell(j)
-                        .setCellValue((time.updatedDay).toString() + (time.updatedMon).toString())
+                        .setCellValue((time.updatedDay).toString() +"/"+ (time.updatedMon).toString() +"/"+ (time.updatedYear).toString())
                     sheet.getRow(i + 2).createCell(j)
                         .setCellValue((time.fromtimeHour).toString()+":" + (time.fromtimeMin).toString())
                     sheet.getRow(i + 3).createCell(j)

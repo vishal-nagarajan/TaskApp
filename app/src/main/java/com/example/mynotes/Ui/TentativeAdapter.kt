@@ -98,6 +98,7 @@ class TentativeAdapter(private val notes: List<Note>):RecyclerView.Adapter<Tenta
                     })
                 builder.setView(inflater)
                 val dial = builder.create()
+
                 dial.show()
 
                 dial.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
