@@ -30,9 +30,13 @@ interface NoteDao {
 
     @Update
     suspend fun updateNote(note: Note)
+
     @Transaction
     @Query("SELECT * FROM Note ")
     suspend fun getTaskWithTimeLog():List<TaskWithTimelog>
+
+    @Query("SELECT taskid FROM Timelog WHERE (((updatedDay>:fromDay AND  updatedMon=:fromMonth AND updatedYear=:fromYear) OR(updatedMon>:fromMonth AND updatedYear=:fromMonth) OR (updatedYear>:fromYear))AND((updatedDay<:toDay AND updatedMon=:toMonth AND updatedYear=:toYear) OR (updatedMon<:toMonth AND updatedYear=:toYear)OR (updatedYear<:toYear)))")
+    suspend fun getDateLog(fromDay:Int,fromMonth:Int,fromYear:Int,toDay:Int,toMonth:Int,toYear:Int):List<Int>
 
     @Query("SELECT nowChip from NOW")
     suspend fun getNOW():List<String>
@@ -56,18 +60,12 @@ interface NoteDao {
 
     @Query("SELECT * FROM note WHERE ((day>=startDay AND mon>=startMon AND year=startYear) OR (mon>startMon AND year=startYear) OR (year>startYear)) AND Status=0 ORDER BY id DESC")
     suspend fun getTodayNotes() : List<Note>
-//    Status=0 AND ((day>endDay AND mon=endMon AND year=endYear) OR (mon>endMon AND year=endYear) OR(year>endYear) )"
 
     @Query("SELECT Distinct client FROM note ")
     suspend fun getClient():List<String>
 
     @Query("SELECT Distinct project FROM note ")
     suspend fun getProject():List<String>
-
-//    @Query("SELECT * FROM timelog"){
-//
-//    }
-
 
     @Query("UPDATE note SET Status=:status WHERE id=:sid")
     suspend fun updateStatus(sid:Int,status: Boolean)
@@ -90,6 +88,6 @@ interface NoteDao {
     @Query("SELECT  * FROM note Where project=:Project")
     suspend fun getProjectLog(Project:String):List<Note>
 
-//    @Query("SELECT * FROM note WHERE Status=0 AND ((day<=endDay AND mon=endMon AND year=endYear) OR (mon<endMon AND year=endYear) OR(year<endYear) )")
-//    suspend fun getYetToDueTasks():List<Note>
+    @Query("SELECT * FROM note WHERE Status=0 AND ((day<=endDay AND mon=endMon AND year=endYear) OR (mon<endMon AND year=endYear) OR(year<endYear) )")
+    suspend fun getYetToDueTasks():List<Note>
 }

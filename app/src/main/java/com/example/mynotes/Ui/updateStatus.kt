@@ -1,5 +1,6 @@
 package com.example.mynotes.Ui
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -50,23 +51,9 @@ class updateStatus : BaseFragment() {
         return inflater.inflate(R.layout.fragment_update_status, container, false)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        launch {
-//            context?.let {
-//                val TaskWTL=NoteDatabase(it).getNoteDao().getTaskWithTimeLog()
-//
-//                for (task in TaskWTL){
-//
-////                    task.task.totimeMin
-//                    val timeloglist =task.timelogs
-//                    for(time in timeloglist){
-//                        time.fromtimeHour
-//                    }
-//                }
-//                it.toast(TaskWTL.toString())
-//            }
-//        }
         launch {
             context?.let {
 //                val text = "test"
@@ -83,8 +70,6 @@ class updateStatus : BaseFragment() {
                         chip.setRippleColorResource(R.color.colorPrimaryDark)
                         chip.setChipBackgroundColorResource(R.color.colorAccent)
                         chipGroup.addView(chip)
-                    } else {
-                        ;
                     }
                 }
             }
@@ -131,14 +116,14 @@ class updateStatus : BaseFragment() {
             fromTimeHour = hour
             fromTimeMinute = minute
             fromtime= LocalTime.of(hour,minute)
+            start_time_display.text = Integer.toString(fromTimeHour)+":"+Integer.toString(fromTimeMinute)
             }
         button3.setOnClickListener {
             context?.let {
                 TimePickerDialog(it,timeSetListener,fromTimeHour,fromTimeMinute,false).show()
-//                TimePickerDialog(it,timeSetListener)
-
             }
         }
+
 
         val timeSetListener2=TimePickerDialog.OnTimeSetListener{_,hour,minute->
             cal2.set(Calendar.HOUR_OF_DAY,hour)
@@ -146,16 +131,19 @@ class updateStatus : BaseFragment() {
             toTimeHour = hour
             toTimeMinute = minute
             totime= LocalTime.of(hour,minute)
+            if(fromTimeHour>toTimeHour||(fromTimeHour==toTimeHour&&(fromTimeMinute>toTimeMinute))){
+                context?.toast("Invalid End Time")
+                end_time_display.text="Invalid End Time"
+            }else {
+                end_time_display.text =
+                    Integer.toString(toTimeHour) + ":" + toTimeMinute.toString()
+            }
         }
         button4.setOnClickListener {
             context?.let {
                 TimePickerDialog(it,timeSetListener2,toTimeHour,toTimeMinute,false).show()
-
             }
         }
-
-
-
 
 
         //add chip
@@ -169,8 +157,6 @@ class updateStatus : BaseFragment() {
                         null
                     )
                     builder.setTitle("Add Nature of Work")
-//                    val edittext = nature_of_work_text
-//                    textNOW = nature_of_work_text.text.toString()
                     builder.setPositiveButton(R.string.save,
                         DialogInterface.OnClickListener { dialog, id ->
                         })
@@ -183,11 +169,9 @@ class updateStatus : BaseFragment() {
                         if (textNOW.isEmpty()){
                             edittext.error = "Enter work nature"
                             edittext.requestFocus()
-//                            return@setOnClickListener
                         }else{
 
                             CoroutineScope(Dispatchers.Main + Job()).launch {
-//                                context?.let {
                                     it.context.toast("here")
                                     val mNOW = NOW(textNOW)
                                     NoteDatabase(it.context).getNoteDao().addNOW(mNOW)
@@ -200,19 +184,12 @@ class updateStatus : BaseFragment() {
                                     chip.setChipBackgroundColorResource(R.color.colorAccent)
                                     chipGroup.addView(chip)
                                     dial.dismiss()
-//                                }
                             }
-
                         }
                     }
-//                    val mNOW = NOW(textNOW)
-//                    NoteDatabase(it).getNoteDao().addNOW(mNOW)
-
-
                 }
             }
         }
-
         //chipselection to db
         var checkedChipId = chipGroup.checkedChipId
         chipGroup.setOnCheckedChangeListener { group, checkedId ->
@@ -226,8 +203,13 @@ class updateStatus : BaseFragment() {
             val nhours = edit_hours.getText().toString()
             val place = place_text.text.toString()
             val people = people_text.text.toString()
+            if(fromTimeHour>toTimeHour||(fromTimeHour==toTimeHour&&(fromTimeMinute>toTimeMinute))){
+                context?.toast("Enter Valid End time")
+                end_time_display.error
+                return@setOnClickListener
+            }
             if (nhours.isEmpty()) {
-                edit_hours.error = "hours Required"
+                edit_hours.error="hours Required"
                 edit_hours.requestFocus()
                 return@setOnClickListener
             }
@@ -259,9 +241,6 @@ class updateStatus : BaseFragment() {
                     val action = updateStatusDirections.actionbacktoMenu()
                     Navigation.findNavController(it).navigate(action)
                 }
-
-
-
         }
     }
 }

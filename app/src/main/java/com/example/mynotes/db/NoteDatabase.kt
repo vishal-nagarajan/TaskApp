@@ -9,8 +9,6 @@ import java.util.concurrent.locks.Lock
 
 @Database(
     entities = arrayOf(Note::class,client::class,project::class,NOW::class,Timelog::class),version = 1
-//    entities = [client::class],
-//    version = 1
 )
 abstract class NoteDatabase  : RoomDatabase() {
      abstract fun getNoteDao():NoteDao

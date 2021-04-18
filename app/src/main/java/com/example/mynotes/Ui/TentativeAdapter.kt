@@ -44,8 +44,6 @@ class TentativeAdapter(private val notes: List<Note>):RecyclerView.Adapter<Tenta
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: TentativeViewHolder, position: Int) {
-
-
         holder.view.tentative_task.text = notes[position].task
         holder.view.sno.text = (notes.size - notes[position].id + 1).toString()
         holder.view.modify_button.setOnClickListener {
@@ -63,11 +61,10 @@ class TentativeAdapter(private val notes: List<Note>):RecyclerView.Adapter<Tenta
                 val PID  = inflater.findViewById<TextView>(R.id.postpone_picked_date)
                 //postpone custom date
                 inflater.findViewById<Button>(R.id.buttonPostpone).setOnClickListener {
-//                    var finalpostDate:String="nul"
                     val cal = Calendar.getInstance()
                     var ptDate:String
                     fun updatepost(): String {
-                        val myFormat = "dd/MM/yyyy" // mention the format you need
+                        val myFormat = "dd/MM/yyyy"
                         val sdf = SimpleDateFormat(myFormat, Locale.US)
                         return sdf.format(cal.getTime())
                     }
@@ -102,7 +99,6 @@ class TentativeAdapter(private val notes: List<Note>):RecyclerView.Adapter<Tenta
                 dial.show()
 
                 dial.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
-//                    fun DialogInterface.OnClickListener(){
                     if(yearw==1){
                         PID.error = "pick date"
                         PID.requestFocus()

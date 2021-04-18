@@ -2,6 +2,7 @@ package com.example.mynotes.Ui
 
 import android.Manifest
 import android.app.Activity
+import android.app.DatePickerDialog
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Environment
@@ -26,6 +27,7 @@ import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.IOException
+import java.text.SimpleDateFormat
 import java.util.*
 
 class CustomWorkLogFragment : BaseFragment() {
@@ -87,6 +89,7 @@ class CustomWorkLogFragment : BaseFragment() {
         lateinit var Client:String
         lateinit var projectdata:List<Note>
         lateinit var Project:String
+
         fun customGenerator(clientd:List<Note>,FolderN:String,FileN:String){
             val workbook: Workbook = XSSFWorkbook()
             val sheet: Sheet = workbook.createSheet("log")
@@ -113,11 +116,9 @@ class CustomWorkLogFragment : BaseFragment() {
                     sheet.getRow(i++).createCell(j).setCellValue("${note.endDay} / ${note.endMon}/${note.endYear}")
                     sheet.getRow(i++).createCell(j).setCellValue(note.place)
                     sheet.getRow(i++).createCell(j).setCellValue(note.people)
-                    sheet.getRow(i++).createCell(j).setCellValue(note.natureOfWork)
-
+                    sheet.getRow(i).createCell(j).setCellValue(note.natureOfWork)
                     i=0
                     j++
-
                 }
             val date = Calendar.getInstance().timeInMillis.toString()
             val fileName:String = "$FileN$date.xlsx"
@@ -125,7 +126,6 @@ class CustomWorkLogFragment : BaseFragment() {
             val folder = File(extStorageDirectory, "Custom Logs/$FolderN")
             folder.mkdirs()
             val file = File(folder, fileName)
-//            while()
             file.createNewFile()
             try {
                 file.createNewFile()
@@ -142,15 +142,12 @@ class CustomWorkLogFragment : BaseFragment() {
             } catch (e: IOException) {
                 e.printStackTrace()
             }
-//            context?.toast(Client+"'s Report has been generated $date")
         }
 
-//        Client = spinnerclient_CW.selectedItem.toString()
         client_selected.setOnClickListener {
             Client = spinnerclient_CW.selectedItem.toString()
             launch {
                 context?.let {
-//                val c=Client
                     clientdata=NoteDatabase(it).getNoteDao().getClientLog(Client)
                     it.toast(Client+"has been selected")
 
@@ -193,69 +190,70 @@ class CustomWorkLogFragment : BaseFragment() {
         }
 
 
-//            val workbook: Workbook = XSSFWorkbook()
-//            val sheet: Sheet = workbook.createSheet("log")
-//            var row = sheet.createRow(0)
-//            try{
-//            sheet.createRow(0).createCell(0).setCellValue("Task")
-//            sheet.createRow(1).createCell(0).setCellValue("project")
-//            sheet.createRow(2).createCell(0).setCellValue("client")
-//            sheet.createRow(3).createCell(0).setCellValue("description")
-//            sheet.createRow(4).createCell(0).setCellValue("start date")
-//            sheet.createRow(5).createCell(0).setCellValue("end date")
-//            sheet.createRow(6).createCell(0).setCellValue("place")
-//            sheet.createRow(7).createCell(0).setCellValue("people")
-//            sheet.createRow(8).createCell(0).setCellValue("nature of work")
-//            var i=1
-//            var j=1
+//        var FrDate: String = ""
+//        from_date_pick.setOnClickListener {
+//            val cal = Calendar.getInstance()
+//            fun updateFromDate(): String {
+//                val myFormat = "dd/MM/yyyy" // mention the format you need
+//                val sdf = SimpleDateFormat(myFormat, Locale.US)
+//                return sdf.format(cal.getTime())
+//            }
+//            val dateSetListener =
+//                DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+//                    cal.set(Calendar.YEAR, year)
+//                    cal.set(Calendar.MONTH, monthOfYear)
+//                    cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+//                    FrDate = updateFromDate()
+//                    context?.toast(FrDate)
+//                }
+//            context?.let {
+//                DatePickerDialog(
+//                    it,
+//                    dateSetListener, // set DatePickerDialog to point to today's date when it loads up
+//                    cal.get(Calendar.YEAR),
+//                    cal.get(Calendar.MONTH),
+//                    cal.get(Calendar.DAY_OF_MONTH)
+//                ).show()
+//            }
 //
-//            for(note in clientdata){
-//                i=0
-//                sheet.getRow(i++).createCell(j).setCellValue(note.task)
-//                sheet.getRow(i++).createCell(j).setCellValue(note.project)
-//                sheet.getRow(i++).createCell(j).setCellValue(note.client)
-//                sheet.getRow(i++).createCell(j).setCellValue(note.description)
-//                sheet.getRow(i++).createCell(j).setCellValue(note.startDay.toString() + "/" + note.startMon.toString() + "/" + note.startYear.toString())
-//                sheet.getRow(i++).createCell(j).setCellValue("${note.endDay} / ${note.endMon}/${note.endYear}")
-//                sheet.getRow(i++).createCell(j).setCellValue(note.place)
-//                sheet.getRow(i++).createCell(j).setCellValue(note.people)
-//                sheet.getRow(i++).createCell(j).setCellValue(note.natureOfWork)
+//        }
+//        var ToDate: String = ""
+//        to_date_pick.setOnClickListener {
+//            val cal = Calendar.getInstance()
+//            fun updateToDate(): String {
+//                val myFormat = "dd/MM/yyyy" // mention the format you need
+//                val sdf = SimpleDateFormat(myFormat, Locale.US)
+//                return sdf.format(cal.getTime())
+//            }
+//            val dateSetListener2 =
+//                DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+//                    cal.set(Calendar.YEAR, year)
+//                    cal.set(Calendar.MONTH, monthOfYear)
+//                    cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+//                    ToDate = updateToDate()
+//                    context?.toast(ToDate)
+//                }
+//            context?.let {
+//                DatePickerDialog(
+//                    it,
+//                    dateSetListener2, // set DatePickerDialog to point to today's date when it loads up
+//                    cal.get(Calendar.YEAR),
+//                    cal.get(Calendar.MONTH),
+//                    cal.get(Calendar.DAY_OF_MONTH)
+//                ).show()
+//            }
 //
-//                i=0
-//                j++
-//
-//            }}catch (e:UninitializedPropertyAccessException){
-//                val errorText = spinnerclient_CW.selectedView as TextView
-//                errorText.error = "confirm client"
-//                context?.toast("Please confirm client")
-////                client_selected.requestFocus()
+//        }
+//        date_selected.setOnClickListener {
+//            if (ToDate.isEmpty()){
+//                context?.toast("Select to Date")
 //                return@setOnClickListener
 //            }
-//            val fileName:String = "Client.xlsx"
-//           val extStorageDirectory = requireContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)
-//            val folder = File(extStorageDirectory, "custom Logs")
-//            folder.mkdir()
-//            val file = File(folder, fileName)
-//            file.createNewFile()
-//            try {
-//                file.createNewFile()
-//            } catch (e1: IOException) {
-//                e1.printStackTrace()
+//            if(FrDate.isEmpty()){
+//                context?.toast("Select from Date")
+//                return@setOnClickListener
 //            }
-//
-//            try {
-//                val fileOut = FileOutputStream(file)
-//                workbook.write(fileOut)
-//                fileOut.close()
-//            } catch (e: FileNotFoundException) {
-//                e.printStackTrace()
-//            } catch (e: IOException) {
-//                e.printStackTrace()
-//            }
-//            context?.toast(Client+"'s Report has been generated")
-
-
-
+//        }
     }
 
 }

@@ -20,8 +20,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_progress_task"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="330dp"
+        android:layout_height="300dp"
+        android:scrollbars="vertical"
+        android:scrollbarSize="10dp"
+        style="@style/scrollbar_shape_style"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
