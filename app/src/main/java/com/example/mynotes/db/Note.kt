@@ -80,7 +80,6 @@ data class Timelog(
     var timelogId:Int=0
 
 }
-
 data class TaskWithTimelog(
     @Embedded val task: Note,
     @Relation(
@@ -89,10 +88,3 @@ data class TaskWithTimelog(
     )
     val timelogs: List<Timelog>
 )
-//data class Notewithclient(
-//    @Embedded val note:Note,
-//    @Relation(
-//        parentColumn = "id",
-//        entityColumn = "clientId"
-//)val clients : List<client>
-//)

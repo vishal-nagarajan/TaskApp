@@ -22,8 +22,6 @@ class HomeFragment : BaseFragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
-
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         recycler_view_notes.setHasFixedSize(true)
@@ -42,8 +40,6 @@ class HomeFragment : BaseFragment() {
         button_menu.setOnClickListener{
             val action = HomeFragmentDirections.actionMenu()
             Navigation.findNavController(it).navigate(action)
-
-//            Home
         }
     }
 }

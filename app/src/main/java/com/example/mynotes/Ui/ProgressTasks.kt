@@ -1,5 +1,6 @@
 package com.example.mynotes.Ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -20,7 +21,6 @@ class ProgressTasks : BaseFragment() {
             a = ProgressTasksArgs.fromBundle(it).page
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,7 +28,7 @@ class ProgressTasks : BaseFragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_progress_tasks, container, false)
     }
-
+    @SuppressLint("SetTextI18n")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         recycler_view_progress_task.setHasFixedSize(true)
@@ -47,9 +47,9 @@ class ProgressTasks : BaseFragment() {
             launch {
                 context?.let {
                     val note = NoteDatabase(it).getNoteDao().getProgressTasks()
-//                it.toast(note[0].task)
+                    val timelogData=NoteDatabase(it).getNoteDao().getTaskWithTimeLog()
                     recycler_view_progress_task.adapter =
-                        ProgressTasksAdapter(note)
+                        ProgressTasksAdapter(note,timelogData)
                 }
             }
         }else if(a==3){
@@ -57,7 +57,6 @@ class ProgressTasks : BaseFragment() {
             launch {
                 context?.let {
                     val note = NoteDatabase(it).getNoteDao().getOverDueTasks()
-//                it.toast(note[0].task)
                     recycler_view_progress_task.adapter =
                         DueOverAdapter(note)
                 }
@@ -66,10 +65,9 @@ class ProgressTasks : BaseFragment() {
             progress_title.text = "Tasks yet to be due"
             launch {
                 context?.let {
-                    val note = NoteDatabase(it).getNoteDao().getAllNotes()
-//                it.toast(note[0].task)
+                    val note = NoteDatabase(it).getNoteDao().getYetToDueTasks()
                     recycler_view_progress_task.adapter =
-                        DueOverAdapter(note)
+                        YetDueAdapter(note)
                 }
             }
 

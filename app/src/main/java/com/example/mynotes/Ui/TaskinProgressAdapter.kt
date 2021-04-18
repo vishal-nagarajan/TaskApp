@@ -41,16 +41,10 @@ class TaskinProgressAdapter(private val notes : List<Note>):RecyclerView.Adapter
 
         holder.view.tip_task.text = notes[position].task
         holder.view.sno.text = (notes.size - notes[position].id + 1).toString()
-//        holder.view.status.text = notes[position].Status.toString()
-//        holder.view.hours_taken.text = notes[position].hours.toString()
         holder.view.update_button.setOnClickListener{
             val action  = TaskinProgressDirections.actionStatusChange()
             action.note=notes[position]
             Navigation.findNavController(it).navigate(action)
         }
-//        }
-
-
-
     }
 }

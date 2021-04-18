@@ -13,12 +13,6 @@ import kotlinx.android.synthetic.main.fragment_main_menu.*
 
 
 class MainMenu : BaseFragment() {
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,11 +20,8 @@ class MainMenu : BaseFragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_main_menu, container, false)
     }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-
         add_task.setOnClickListener{
             val action = MainMenuDirections.mAddNote()
             Navigation.findNavController(it).navigate(action)
@@ -41,7 +32,6 @@ class MainMenu : BaseFragment() {
         }
         tasks_yet_to_be_due.setOnClickListener{
            val action = MainMenuDirections.actionDueYet()
-//           actionTentative()
             Navigation.findNavController(it).navigate(action)
         }
         tasks_in_progress.setOnClickListener {
@@ -64,8 +54,6 @@ class MainMenu : BaseFragment() {
             val action  = MainMenuDirections.actionCustomWorkLog()
             Navigation.findNavController(it).navigate(action)
         }
-
-
     }
 
 }

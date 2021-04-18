@@ -23,6 +23,7 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 
@@ -48,22 +49,6 @@ import java.util.*
 
 @Suppress("DEPRECATION")
 class WorkLogFragment : BaseFragment() {
-    private fun copyFile(DestinationContentUri: Uri, fileToExport: File){
-       context?.contentResolver?.openFileDescriptor(DestinationContentUri, "W")
-           .use { parcelFileDescriptor ->
-           ParcelFileDescriptor.AutoCloseOutputStream(parcelFileDescriptor).write(fileToExport.readBytes())
-       }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-
-
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -72,7 +57,6 @@ class WorkLogFragment : BaseFragment() {
         return inflater.inflate(R.layout.fragment_work_log, container, false)
     }
 
-//    @RequiresApi(Build.VERSION_CODES.Q)
     @SuppressLint("SdCardPath")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -84,7 +68,6 @@ class WorkLogFragment : BaseFragment() {
                 timelogData=NoteDatabase(it).getNoteDao().getTaskWithTimeLog()
             }
         }
-
 
         button_generat_work_log.setOnClickListener { it ->
             //getting permission to write and read data from device storage
@@ -138,7 +121,6 @@ class WorkLogFragment : BaseFragment() {
             //time logs in seperate sheet of the same workbook using on to many
             sheet = workbook.createSheet("timelog")
             var ntasks = 0
-//
             while (ntasks<timelogData.size*5) {
                 sheet.createRow(ntasks+0).createCell(0).setCellValue("Task")
                 sheet.createRow(ntasks+1).createCell(0).setCellValue("Date")
@@ -205,134 +187,7 @@ class WorkLogFragment : BaseFragment() {
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
-                val shareuri = Uri.parse(
-                    context?.getExternalFilesDir(DIRECTORY_DOWNLOADS)
-                        .toString() + "/FolderName/File.xlsx"
-                )
-
-
-            context?.toast(getExternalStorageDirectory().toString())
-//            try create file in Media store
-//            val values = ContentValues()
-
-//            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
-//                values.put(MediaStore.MediaColumns.DISPLAY_NAME, "Test")
-//                values.put(MediaStore.MediaColumns.MIME_TYPE, "text/plain")
-//                values.put(
-//                    MediaStore.MediaColumns.RELATIVE_PATH,
-//                    "${Environment.DIRECTORY_DOWNLOADS}/TaskApp/"
-//                )
-////                values.put(MediaSto)
-////            }       //folder name
-//                context?.contentResolver?.insert(MediaStore.Files.getContentUri("external"), values)
-//
-//            }
-//            context?.toast(MediaStore.Files.getContentUri("external").toString())
-
-
-//                context?.toast(Environment.getExternalStoragePublicDirectory(
-//                    DIRECTORY_DOWNLOADS).toString())
-
-//call
-//            val callIntent: Intent = Uri.parse("tel:5551234").let { number ->
-//                Intent(Intent.ACTION_DIAL, number)
-//            }
-//            startActivity(callIntent)
-//sharing woked well
-//            val shareIntent: Intent = Intent().apply {
-//                action = Intent.ACTION_SEND
-//                putExtra(
-//                    Intent.EXTRA_STREAM,
-//                shareuri
-//                )
-//                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-//
-//                type = "application/vnd.ms-excel.xlsx"
-//            }
-//            startActivity(Intent.createChooser(shareIntent, "share"))
-//view through intent
-//            val opifle = context?.contentResolver?.openFile(contentUri,"r",null)
-//            val viewIntent = Intent().apply {
-//                setAction(Intent.ACTION_VIEW)
-//                setType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
-//                putExtra(Intent.EXTRA_STREAM,shareuri)
-//                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-//////                setData()
-////                setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
-////                setData(Uri.parse("/storage/emulated/0/Android/data/com.example.mynotes/files/Download/FolderName/File.xlsx"))
-////                setDataAndType(shareuri,"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
-////                setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
-//            }
-//            activity?.startActivity(Intent.createChooser(viewIntent,"app open"))
-//openfile
-//            val PICK_PDF_FILE = 2
-////
-//            fun openFile(pickerInitialUri: Uri) {
-//    val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
-//        addCategory(Intent.CATEGORY_OPENABLE)
-//        type = "application/vnd.ms-excel.xlsx"
-//
-//        // Optionally, specify a URI for the file that should appear in the
-//        // system file picker when it loads.
-//        putExtra(DocumentsContract.EXTRA_INITIAL_URI, pickerInitialUri)
-//    }
-//
-//    startActivityForResult(intent, PICK_PDF_FILE)
-//}
-//            openFile(contentUri)
-//                Uri.parse("content://storage/emulated/0/Android/data/com.example.mynotes/files/Download"))
-//            Uri.fromFile(context?.getExternalFilesDir(DIRECTORY_DOCUMENTS))
-
-
-
-
-
-////worked saving  of a new fle
-//            val CREATE_FILE = 1
-//                val intent = Intent(ACTION_CREATE_DOCUMENT).apply {
-////                    addCategory(Intent.CATEGORY_OPENABLE)
-//                    putExtra(EXTRA_STREAM,contentUri)
-//                    addFlags(FLAG_GRANT_READ_URI_PERMISSION)
-//                    type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-//                    putExtra(EXTRA_TITLE, "invoice.xlsx")
-//
-//                }
-//            activity?.startActivity(createChooser(intent,""))
-//                startActivityForResult(intent, CREATE_FILE)
-//            val CREATE_FILE = 1
-//            val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
-//                addCategory(Intent.CATEGORY_OPENABLE)
-//                val fileName =  "file.xlsx"
-//
-//
-//                var file = File(fileName)
-//
-////                // create a new file
-////                val isNewFileCreated :Boolean = file.createNewFile()
-////
-////                if(isNewFileCreated){
-////                    context?.toast("$fileName is created successfully.")
-////                } else{
-////                    context?.toast("$fileName already exists.")
-////                }
-////
-////                // try creating a file that already exists
-////                val isFileCreated :Boolean = file.createNewFile()
-////
-////                if(isFileCreated){
-////                    context?.toast("$fileName is created successfully.")
-////                } else{
-////                    context?.toast("$fileName already exists.")
-////                }
-//
-//                type = "application/xlsx"
-//                putExtra(Intent.EXTRA_TITLE, fileName)
-////                putExtra(Intent.)
-////                    putExtra(Intent.,"vishal")
-//            }
-//            startActivityForResult(intent, CREATE_FILE)
-
-
+            context?.toast("Your file is saved in"+folder.absolutePath+fileName)
         }
 
     }

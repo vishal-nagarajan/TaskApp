@@ -21,62 +21,6 @@
                 android:textAppearance="@style/CardView.Dark"
                 android:textColor="#D4003C"
                 android:textSize="24dp" />
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/text_view_description"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_below="@+id/text_view_task"-->
-            <!--                android:text="@string/description"-->
-            <!--                android:textAppearance="@style/Base.CardView"-->
-            <!--                android:textSize="16dp" />-->
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/text_view_client"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_below="@+id/text_view_description"-->
-            <!--                android:text="@string/client"-->
-            <!--                android:textAppearance="@style/Base.CardView"-->
-            <!--                android:textColor="#00BCD4"-->
-            <!--                android:textSize="16dp" />-->
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/text_view_project"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_below="@+id/text_view_client"-->
-            <!--                android:text="@string/project"-->
-            <!--                android:textAppearance="@style/Base.CardView"-->
-            <!--                android:textColor="#3F51B5"-->
-            <!--                android:textSize="16dp" />-->
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/text_view_currDate"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_below="@+id/text_view_project"-->
-            <!--                android:text="@string/currentdate"-->
-            <!--                android:textAppearance="@style/Base.CardView"-->
-            <!--                android:textSize="16dp" />-->
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/text_view_startDate"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_below="@+id/text_view_currDate"-->
-            <!--                android:text="@string/start_date"-->
-            <!--                android:textAppearance="@style/Base.CardView"-->
-            <!--                android:textSize="16dp" />-->
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/text_view_endDate"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_below="@+id/text_view_startDate"-->
-            <!--                android:text="@string/end_date"-->
-            <!--                android:textAppearance="@style/Base.CardView"-->
-            <!--                android:textSize="16dp" />-->
             <ImageButton
                 android:id="@+id/edit_icon"
                 android:layout_width="30dp"
