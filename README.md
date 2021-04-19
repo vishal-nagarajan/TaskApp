@@ -37,6 +37,19 @@ A Native Android Application that helps a user to add, classify, schedule and ma
 - Work Log can be generated either specific to a client/project or as a whole.
 - Users can not only add tasks prior to start date and plan when popped but also can add the task on that particular date.
 - Eventhough the above mentioned features are seperately found in some applications but not as a whole in one application.
+## Screen shots:
+### Tentative To do
+![New Project (1)](https://user-images.githubusercontent.com/56826029/115232664-9f6ca180-a134-11eb-9d1b-7944d449618b.png)
+### To do
+![New Project (2)](https://user-images.githubusercontent.com/56826029/115232947-e9558780-a134-11eb-8379-1c90344eb548.png)
+### Main menu | Add Task
+![New Project (3)](https://user-images.githubusercontent.com/56826029/115233207-405b5c80-a135-11eb-8af4-3e2110ed9197.png)
+### Edit Task 
+![New Project (4)](https://user-images.githubusercontent.com/56826029/115233384-74cf1880-a135-11eb-9c65-a5120c4ed552.png)
+### Main menu | Task in progress
+![New Project (5)](https://user-images.githubusercontent.com/56826029/115233613-c11a5880-a135-11eb-95eb-2fb8c633edfc.png)
+### Work log | Custom work log
+![New Project (6)](https://user-images.githubusercontent.com/56826029/115233781-f32bba80-a135-11eb-94b3-eadaada40ede.png)
+### Sample Work log generated from the application [worklog.xlsx](https://github.com/vishal-nagarajan/TaskApp/files/6335931/worklog.xlsx)
 
-### Note
-- This application's development is in progress.
+
