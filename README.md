@@ -23,6 +23,6 @@ A Native Android Application that helps a user to add, classify, schedule and ma
 - #### [Apache POI](https://poi.apache.org/)
   -This application makes use of Apache POI to write the in Microsoft Excel Document whenever the user chooses to generate a work log.
 - #### [Kotlin Coroutines](https://developer.android.com/kotlin/coroutines)
-  -This application makes use of coroutines to asynchronously call database function calls without disturbing the main thread in which the UI is running.
+  - This application makes use of coroutines to asynchronously call database function calls without disturbing the main thread in which the UI is running.
 - #### [Material Design](https://material.io/design)
-  -This application uses various Material design components in the User Interface.
+  - This application uses various Material design components in the User Interface.
