@@ -52,4 +52,11 @@ A Native Android Application that helps a user to add, classify, schedule and ma
 ![New Project (6)](https://user-images.githubusercontent.com/56826029/115233781-f32bba80-a135-11eb-94b3-eadaada40ede.png)
 ### Sample Work log generated from the application [worklog.xlsx](https://github.com/vishal-nagarajan/TaskApp/files/6335931/worklog.xlsx)
 
-
+## Improvements to be done
+- [ ] Tentative to do screen once per day
+- [ ] Normalise Task table
+- [ ] Application main icon
+- [ ] Delete task option in Edit Task screen
+- [ ] Save the work log in main directory
+- [ ] Custom work log for given date range
+- [ ] Settings screen
