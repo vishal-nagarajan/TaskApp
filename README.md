@@ -21,8 +21,22 @@ A Native Android Application that helps a user to add, classify, schedule and ma
 - #### Kotlin Synthetics
   - This application uses kotlin synthetics to find the elements from the .xml directly by their id rather than using a findViewById.
 - #### [Apache POI](https://poi.apache.org/)
-  -This application makes use of Apache POI to write the in Microsoft Excel Document whenever the user chooses to generate a work log.
+  - This application makes use of Apache POI to write the data in Microsoft Excel Document whenever the user chooses to generate a work log.
 - #### [Kotlin Coroutines](https://developer.android.com/kotlin/coroutines)
   - This application makes use of coroutines to asynchronously call database function calls without disturbing the main thread in which the UI is running.
 - #### [Material Design](https://material.io/design)
   - This application uses various Material design components in the User Interface.
+## Download & Test the application
+- **Step-1** : Download the .apk file from the [link](https://drive.google.com/file/d/1DHMeCO8N0SMesectjyb2fQL-yMYnVlHM/view?usp=sharing)
+- **Step-2** : Install the application your Android device by allowing installation from third party.
+- **Step-3** : Now the Task App can be used from your mobile.
+## Difference from a typical To-do Application
+- Most of the to-do apps allows the users to schedule a task by mentioning the tentative end date but not the tentative start date.Task App allows users to mention a tentative start date.
+- Once a part/full Task is done the work done can be updated in this app which stores the timing, place, people and nature of work done.
+- The task status can be viewed in the application.
+- Work Log can be generated either specific to a client/project or as a whole.
+- Users can not only add tasks prior to start date and plan when popped but also can add the task on that particular date.
+- Eventhough the above mentioned features are seperately found in some applications but not as a whole in one application.
+
+### Note
+- This application's development is in progress.
